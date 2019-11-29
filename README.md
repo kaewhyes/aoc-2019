@@ -5,6 +5,6 @@
 ### THE PLAN:
  * Actually take time to progress through each day.
  * Try to learn a new Language during AoC.
-   * Lua (or Moonscript), Go, Rust, or D
+   * Lua
  * Not give up.
  * Document all code to the best of my ability so that I can understand happened here when I look back years later.

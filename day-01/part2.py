@@ -13,6 +13,7 @@ What is the sum of the fuel requirements for all of the modules on your spacecra
 """
 
 import math
+import sys
 
 def total_fuel(fuel): # recursion!
     fuels_fuel = math.floor(fuel / 3) - 2 # the fuel required for each amount of fuel
@@ -21,7 +22,7 @@ def total_fuel(fuel): # recursion!
     else:
         return fuels_fuel + total_fuel(fuels_fuel) # total together the total amount of fuel needed
 
-with open("input.txt") as file: # same as part 1...
+with open(sys.argv[1]) as file: # same as part 1...
     lines = file.readlines()
     total = 0
     for line in lines:

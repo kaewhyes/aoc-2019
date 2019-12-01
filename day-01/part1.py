@@ -13,10 +13,11 @@ What is the sum of the fuel requirements for all of the modules on your spacecra
 """
 
 import math
+import sys
 
-with open("input.txt") as file: # open the input as "file"
-    lines = file.readlines() # set file.readlines() as the lines to loop through
-    total = 0 # the total we want
+with open(sys.argv[1]) as file:     # open the input as "file"
+    lines = file.readlines()    # set file.readlines() as the lines to loop through
+    total = 0   # the total we want
     for line in lines:
-        total += math.floor((int(line) / 3)) - 2 # calculate total for each line
-    print(total) # print our total fuel
+        total += math.floor((int(line) / 3)) - 2 #   calculate total for each line
+    print(total) #   print our total fuel

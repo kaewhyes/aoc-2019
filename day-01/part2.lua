@@ -2,7 +2,7 @@
 
 function total_fuel(fuel) 
     local fuels_fuel = math.floor(fuel / 3) - 2
-    if fuels_fuel <=0 then
+    if fuels_fuel <= 0 then
         return 0
     else 
         return fuels_fuel + total_fuel(fuels_fuel)

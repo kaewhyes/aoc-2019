@@ -3,7 +3,18 @@
 import math
 import sys
 
-filename = open(sys.argv[1])
+def part1():
+    filename = open(sys.argv[1], "r")
+    with filename as file:
+        lines = file.readlines()
+        total = 0
+        for line in lines:
+            total += math.floor((int(line) / 3)) - 2
+        return total
+
+#=======================
+# PART 2
+#=======================
 
 def total_fuel(fuel):
     fuels_fuel = math.floor(fuel / 3) - 2
@@ -12,16 +23,9 @@ def total_fuel(fuel):
     else:
         return fuels_fuel + total_fuel(fuels_fuel)
 
-def part1():
-    with filename  as file:
-        lines = file.readlines()
-        total = 0
-        for line in lines:
-            total += math.floor((int(line) / 3)) - 2
-        return total
-
 def part2():
-    with open("input.txt") as file:
+    filename = open(sys.argv[1], "r")
+    with filename as file:
         lines = file.readlines()
         total = 0
         for line in lines:

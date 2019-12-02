@@ -8,6 +8,7 @@ OPMULTIPLY = 2
 OPHALT = 99
 
 def interpret_intcode(noun, verb, num):
+    
     num[1] = noun
     num[2] = verb
 
@@ -22,7 +23,7 @@ def interpret_intcode(noun, verb, num):
         elif num[i] == OPHALT:
             break
         else:
-            print("?")
+            return "?"
     return num[0]
 
 def find_value():

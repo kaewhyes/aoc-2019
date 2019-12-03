@@ -18,11 +18,11 @@ num[2] = 2
 for i in range(0, len(num), 4):
     one = num[i + 1]
     two = num[i + 2]
-    three = num[i + 3] 
+    three = num[i + 3]
     if num[i] == OPADD:
         num[three] = num[one] + num[two]
     elif num[i] == OPMULTIPLY:
-        num[three] = num[one] * num[two]  
+        num[three] = num[one] * num[two]
     elif num[i] == OPHALT:
         break
     else:

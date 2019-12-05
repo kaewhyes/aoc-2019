@@ -63,7 +63,7 @@ function find_value()
     end
     for noun = 0, 99, 1 do
         for verb = 0, 99, 1 do
-            if interpret_intcode(noun, verb, table.clone(num)) == 19690720 then
+            if interpret_intcode(noun, verb, num.clone()) == 19690720 then
                 return 100 * noun + verb
             end
         end

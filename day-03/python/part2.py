@@ -10,11 +10,10 @@ wire2 = lines[1]
 def find_coords(wire):
     x_curr, y_curr, x_dest, y_dest = 0, 0, 0, 0
     direction = (0,0)
-    points = set()
+    points = {}
+    steps = 0
     for move in wire:
-
         units = int(move[1:])
-
         if move[0] == "R":
             x_dest += units
             direction = (1,0)
@@ -29,17 +28,19 @@ def find_coords(wire):
             direction = (0,-1)
 
         while x_curr != x_dest or y_curr != y_dest:
-            points.add((x_curr, y_curr))
+            if (x_curr, y_curr) not in points:
+                points[(x_curr, y_curr)] = steps
             x_curr += direction[0]
             y_curr += direction[1]
+            steps += 1
 
     return points
 
 wire1_coords = find_coords(wire1)
 wire2_coords = find_coords(wire2)
 
-intersections = wire1_coords.intersection(wire2_coords).difference({(0,0)})
+intersection_points = (set(wire1_coords.keys()) & set(wire2_coords.keys())).difference({(0,0)})
 
-manhattan = list(map(lambda point:abs(point[0]) + abs(point[1]), intersections))
+intersections = list(map(lambda x: wire1_coords[x] + wire2_coords[x], intersection_points))
 
-print(min(manhattan))
+print(min(intersections))

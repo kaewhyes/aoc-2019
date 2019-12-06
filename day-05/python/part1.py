@@ -33,8 +33,8 @@ while True:
         break
 
     if op == OPADD or op == OPMULTIPLY:
-        value_1 = None
 
+        value_1 = None
         if m1 == 0:
             value_1 = num[num[i + 1]]
         elif m1 == 1:
@@ -61,9 +61,11 @@ while True:
             result = value_1 * value_2
             i += 4
         num[three] = result
+
     elif op == OPIN:
         num[num[i + 1]] = OPIN_DEF_INP
         i += 2
+
     elif op == OPOUT:
         value_1 = None
         if m1 == 0:
@@ -75,6 +77,7 @@ while True:
             break
         print(value_1)
         i += 2
+
     elif op == OPHALT:
         break
     else:

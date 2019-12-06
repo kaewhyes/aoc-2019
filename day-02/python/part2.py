@@ -8,22 +8,25 @@ OPMULTIPLY = 2
 OPHALT = 99
 
 def interpret_intcode(noun, verb, num):
-    
+    i = 0
+
     num[1] = noun
     num[2] = verb
 
-    for i in range(0, len(num), 4):
+    while True:
         one = num[i + 1]
         two = num[i + 2]
-        three = num[i + 3] 
+        three = num[i + 3]
         if num[i] == OPADD:
             num[three] = num[one] + num[two]
+            i += 4
         elif num[i] == OPMULTIPLY:
-            num[three] = num[one] * num[two]  
+            num[three] = num[one] * num[two]
+            i += 4
         elif num[i] == OPHALT:
             break
         else:
-            return "?"
+            return("?")
     return num[0]
 
 def find_value():

@@ -12,14 +12,18 @@ end
 num[2] = 12
 num[3] = 2
 
-for i = 1, #num, 4 do
+local i = 1
+
+while true do
     one = num[i + 1]+1
     two = num[i + 2]+1
     three = num[i + 3]+1
     if num[i] == OPADD then
         num[three] = num[one] + num[two]
+        i = i + 4
     elseif num[i] == OPMULTIPLY then
         num[three] = num[one] * num[two]
+        i = i + 4
     elseif num[i] == OPHALT then
         break
     end

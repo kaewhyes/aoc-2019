@@ -13,14 +13,18 @@ function part1()
     num[2] = 12
     num[3] = 2
 
-    for i = 1, #num, 4 do
+    local i = 1
+
+    while true do
         one = num[i + 1]+1
         two = num[i + 2]+1
         three = num[i + 3]+1
         if num[i] == OPADD then
             num[three] = num[one] + num[two]
+            i = i + 4
         elseif num[i] == OPMULTIPLY then
             num[three] = num[one] * num[two]
+            i = i + 4
         elseif num[i] == OPHALT then
             break
         end
@@ -41,14 +45,18 @@ function interpret_intcode(noun, verb, num)
     num[2] = noun
     num[3] = verb
 
-    for i = 1, #num, 4 do
+    local i = 1
+
+    while true do
         one = num[i + 1]+1
         two = num[i + 2]+1
         three = num[i + 3]+1
         if num[i] == OPADD then
             num[three] = num[one] + num[two]
+            i = i + 4
         elseif num[i] == OPMULTIPLY then
             num[three] = num[one] * num[two]
+            i = i + 4
         elseif num[i] == OPHALT then
             break
         end
@@ -63,7 +71,7 @@ function find_value()
     end
     for noun = 0, 99, 1 do
         for verb = 0, 99, 1 do
-            if interpret_intcode(noun, verb, num.clone()) == 19690720 then
+            if interpret_intcode(noun, verb, table.clone(num)) == 19690720 then
                 return 100 * noun + verb
             end
         end
